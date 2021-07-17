@@ -1,6 +1,33 @@
+/*Jonathan MElendez Division H Ejercicio 10 IF*/
 function mostrar()
 {
-	//Genero el número RANDOM entre 1 y 10 
-	alert("ok");
+	var notaRandom
+	notaRandom= Math.floor(Math.random()*10)+1;
 
-}//FIN DE LA FUNCIÓN
+	if(notaRandom>8)
+		
+	{
+		alert("Su nota es "+notaRandom+" excelente");
+	}
+	else
+	{
+		if(notaRandom>3)
+		{
+			alert("Su nota es "+notaRandom+" Aprobó");
+		}	
+			
+		else
+		{
+			alert("Su nota es "+notaRandom+" Vamos, la proxima se puede");
+
+		}
+
+
+	}
+
+
+}
+
+	
+
+//FIN DE LA FUNCIÓN

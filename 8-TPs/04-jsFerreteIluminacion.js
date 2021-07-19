@@ -13,7 +13,116 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
  */
 function CalcularPrecio () 
 {
-    Precio=35;
+ 	var cantidadLamparas;
+    var Totalidad;
+    var precioFinal;
+    var precioDescuento1;
+    var precioUnidad;
+    var marcaLampara;
+    var iibb
+    var impuesto
+    
+    precioUnidad=35;
+    marcaLampara=Marca.value;
+    
+    cantidadLamparas=parseInt(cantidadLamparas);
+    cantidadLamparas=txtIdCantidad.value;
+    precioFinal=(cantidadLamparas*precioUnidad);
+   
+
+
+        if(cantidadLamparas>5)
+        {
+            precioDescuento1=(precioFinal*0.5);
+          
+        }
+        else
+        {
+            if(cantidadLamparas==5)
+            {
+                if(marcaLampara == "ArgentinaLuz")
+                {
+                    precioDescuento1=(precioFinal*0.4);
+                 
+                }
+                else
+                {
+                    precioDescuento1=(precioFinal*0.3);
+                  
+                }
+            }
+            else
+            { 
+                if(cantidadLamparas==4)
+                {
+                    if(marcaLampara=="ArgentinaLuz" || marcaLampara=="FelipeLamparas")
+                    {
+                       precioDescuento1=(precioFinal*0.25);
+                      
+                    }
+                    else    
+                    {
+                    precioDescuento1=(precioFinal*0.2);
+                    
+                    }
+                }
+                else 
+                {  
+     
+                    if(cantidadLamparas==3 && marcaLampara=="ArgentinaLuz")
+                {
+                    precioDescuento1=(precioFinal*0.15);
+                    
+                }
+                    else{
+                        if(marcaLampara=="FelipeLamparas")
+                    {
+                        precioDescuento1=(precioFinal*0.10);
+                       
+                    }
+                        else
+                    {
+                        precioDescuento1=(precioFinal*0.05);
+                    }
+
+
+                }
+                
+                     if(cantidadLamparas<3)
+                    {
+                    precioDescuento1=(precioFinal);
+        
+                    
+                }
+                   
+            }
+                
+        }
+
+        }
+
+    Totalidad=precioFinal-precioDescuento1;
+    txtIdprecioDescuento.value=Totalidad;
+
+    impuesto=Totalidad*0.1
+ if(Totalidad>120)
+    {Totalidad+impuesto
+      alert("Usted pago "+impuesto+ " pesos de impuesto ");
+      }
+
+
+
+}
+
+    
+/*saca afuera 
+ Totalidad=precioFinal-precioDescuento1;
+                    txtIdprecioDescuento.value=Totalidad;*/
+                
+
+/*
+                {
+    const Precio=35;
     var cantidad;
     var marcaLampara;
     var descuento;
@@ -73,7 +182,7 @@ function CalcularPrecio ()
 
     }
 
-    precioDescuento=Precio - Precio*descuento/100;
+    precioDescuento=Precio - (Precio*descuento/100);
     txtIdprecioDescuento.value= precioDescuento;
     importeFinal= precioDescuento * cantidad;
     if(importeFinal > 120)
@@ -95,111 +204,4 @@ function CalcularPrecio ()
 
 }
 
-
-
-
-
-
-
-
- /*
-
-{
- 	var cantidadLamparas;
-    var Totalidad;
-    var precioFinal;
-    var precioDescuento1;
-    var precioUnidad;
-    var marcaLampara;
-    var iibb
-    var impuesto
-    
-    precioUnidad=35;
-    marcaLampara=Marca.value;
-    
-    cantidadLamparas=parseInt(cantidadLamparas);
-    cantidadLamparas=txtIdCantidad.value;
-    precioFinal=(cantidadLamparas*precioUnidad);
-    
-    if(cantidadLamparas>5)
-    {
-        precioDescuento1=(precioFinal*0.5);
-        Totalidad=precioFinal-precioDescuento1;
-        txtIdprecioDescuento.value=Totalidad;
-    }
-    else
-    {
-        if(cantidadLamparas==5)
-        {
-            if(marcaLampara == "ArgentinaLuz")
-            {
-                precioDescuento1=(precioFinal*0.4);
-                Totalidad=precioFinal-precioDescuento1;
-                txtIdprecioDescuento.value=Totalidad;
-            }
-            else
-            {
-                precioDescuento1=(precioFinal*0.3);
-                Totalidad=precioFinal-precioDescuento1;
-                txtIdprecioDescuento.value=Totalidad;
-            }
-        }
-        else
-        { 
-            if(cantidadLamparas==4)
-            {
-                if(marcaLampara=="ArgentinaLuz" || marcaLampara=="FelipeLamparas")
-                {
-                   precioDescuento1=(precioFinal*0.25);
-                   Totalidad=precioFinal-precioDescuento1;
-                   txtIdprecioDescuento.value=Totalidad;
-                }
-                else    
-                {
-                precioDescuento1=(precioFinal*0.2);
-                Totalidad=precioFinal-precioDescuento1;
-                txtIdprecioDescuento.value=Totalidad;
-                }
-            }
-            else 
-            {  
- 
-                if(cantidadLamparas==3 && marcaLampara=="ArgentinaLuz")
-            {
-                precioDescuento1=(precioFinal*0.15);
-                Totalidad=precioFinal-precioDescuento1;
-                txtIdprecioDescuento.value=Totalidad;
-            }
-                else{
-                    if(marcaLampara=="FelipeLamparas")
-                {
-                    precioDescuento1=(precioFinal*0.10);
-                    Totalidad=precioFinal-precioDescuento1;
-                    txtIdprecioDescuento.value=Totalidad;
-                }
-                    else
-                {
-                    precioDescuento1=(precioFinal*0.05);
-                    Totalidad=precioFinal-precioDescuento1;
-                    txtIdprecioDescuento.value=Totalidad;
-                }
-            }
-        }
-    }
-
-    }
-    impuesto=Totalidad*0.1
- if(Totalidad>120)
-    {Totalidad+impuesto
-      alert("Usted pago "+impuesto+ " pesos de impuesto ");
-      }
-
-
-
-}
-
-    
-/*saca afuera 
- Totalidad=precioFinal-precioDescuento1;
-                    txtIdprecioDescuento.value=Totalidad;*/
-                
+*/
